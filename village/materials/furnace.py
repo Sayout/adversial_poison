@@ -4,7 +4,7 @@ import torch
 import numpy as np
 
 import pickle
-
+import torch_npu
 import datetime
 import os
 import warnings
@@ -12,6 +12,8 @@ import random
 import PIL
 import pdb
 import math
+
+import torch_npu.npu
 
 from .datasets import construct_datasets, Subset
 
@@ -62,8 +64,11 @@ class Furnace():
 
     def get_num_workers(self):
         """Check devices and set an appropriate number of workers."""
-        if torch.cuda.is_available():
-            num_gpus = torch.cuda.device_count()
+        # if torch.cuda.is_available():
+        #     num_gpus = torch.cuda.device_count()
+        #     max_num_workers = 4 * num_gpus
+        if torch_npu.npu.is_available():
+            num_gpus = torch_npu.npu.device_count()
             max_num_workers = 4 * num_gpus
         else:
             max_num_workers = 4

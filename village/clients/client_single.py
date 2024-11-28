@@ -34,8 +34,9 @@ class _ClientSingle(_ClientBase):
         self.model, self.defs, self.criterion, self.optimizer, self.scheduler = self._initialize_model(self.args.net[0], feature_extractor=feature_extractor)
 
         self.model.to(**self.setup)
-        if torch.cuda.device_count() > 1:
-            self.model = torch.nn.DataParallel(self.model)
+        # TODO
+        # if torch.cuda.device_count() > 1:
+        #     self.model = torch.nn.DataParallel(self.model)
         print(f'{self.args.net[0]} model initialized with random key {self.model_init_seed}.')
 
     """ METHODS FOR (CLEAN) TRAINING AND TESTING OF BREWED POISONS"""
@@ -79,8 +80,9 @@ class _ClientSingle(_ClientBase):
             print('Model reset to epoch 0.')
             self.model, self.criterion, self.optimizer, self.scheduler = self._initialize_model()
             self.model.to(**self.setup)
-            if torch.cuda.device_count() > 1:
-                self.model = torch.nn.DataParallel(self.model)
+            # TODO
+            # if torch.cuda.device_count() > 1:
+            #     self.model = torch.nn.DataParallel(self.model)
         return stats
 
     """ Various Utilities."""

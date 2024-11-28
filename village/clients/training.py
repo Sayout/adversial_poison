@@ -1,8 +1,8 @@
 """Repeatable code parts concerning optimization and training schedules."""
 
-
+import torch_npu
+from torch_npu.contrib import transfer_to_npu
 import torch
-
 import datetime
 from .utils import print_and_save_stats, pgd_step
 
@@ -131,6 +131,7 @@ def run_step(furnace, poison_delta, loss_fn, epoch, stats, model, defs, criterio
         if DEBUG_TRAINING:
             backward_timer_end.record()
             torch.cuda.synchronize()
+            # torch_npu.npu.synchronize()
             stats['data_time'] += data_timer_start.elapsed_time(data_timer_end)
             stats['forward_time'] += forward_timer_start.elapsed_time(forward_timer_end)
             stats['backward_time'] += backward_timer_start.elapsed_time(backward_timer_end)

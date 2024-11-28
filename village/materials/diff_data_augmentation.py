@@ -6,6 +6,7 @@ B) Apply a different transformation to every image in the batch.
 
 The rest are basically sanity checks and tests.
 """
+import os
 
 import torch
 import torch.nn.functional as F
@@ -49,10 +50,24 @@ class RandomTransform(torch.nn.Module):
         y_shift = (randgen[:, 1] - 0.5) * 2 * self.delta
         grid[:, :, :, 1] = grid[:, :, :, 1] + y_shift.unsqueeze(-1).unsqueeze(-1).expand(-1, grid.size(1), grid.size(2))
 
+        # if self.fliplr:
+        #     # grid[randgen[:, 2] > 0.5, :, :, 0] *= -1
+        #     grid[torch.where(randgen[:, 2] > 0.5)] *= -1
+        # if self.flipud:
+        #     # grid[randgen[:, 3] > 0.5, :, :, 1] *= -1
+        #     grid[torch.where(randgen[:, 3] > 0.5)] *= -1
+        
         if self.fliplr:
-            grid[randgen[:, 2] > 0.5, :, :, 0] *= -1
+            mask_lr = (randgen[:, 2] > 0.5).float().view(-1, 1, 1)  # 形状为 [batch_size, 1, 1]
+            mask_lr = mask_lr.expand(-1, grid.size(1), grid.size(2))  # 变成 [batch_size, height, width, 1]
+            grid[:, :, :, 0] *= (1 - 2 * mask_lr)  # 使用广播乘以 -1
+
         if self.flipud:
-            grid[randgen[:, 3] > 0.5, :, :, 1] *= -1
+            mask_ud = (randgen[:, 3] > 0.5).float().view(-1, 1, 1,)  # 形状为 [batch_size, 1, 1, 1]
+            mask_ud = mask_ud.expand(-1, grid.size(1), grid.size(2) )  # 变成 [batch_size, height, width, 1]
+            grid[:, :, :, 1] *= (1 - 2 * mask_ud)  # 同样使用广播乘以 -1
+
+
         return grid
 
 

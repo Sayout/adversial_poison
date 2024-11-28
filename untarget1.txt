@@ -1,0 +1,160 @@
+Currently evaluating -------------------------------:
+Wednesday, 27. November 2024 03:50PM
+Namespace(net=['ResNet18'], dataset='CIFAR10', recipe='untargeted', threatmodel='single-class', poisonkey='3', modelkey=1, deterministic=False, eps=8.0, budget=1.0, name='', poison_path='/opt/dpcvol/datasets/llpoisoned_dataset/untargeted/restar_3', data_path='~/data', resume='', resume_idx=None, attackoptim='PGD', attackiter=250, init='randn', tau=0.05, scheduling=True, restarts=3, poison_partition=None, pbatch=512, pshuffle=False, paugment=True, data_aug='default', full_data=False, adversarial=0, ensemble=1, stagger=False, step=False, max_epoch=None, loss='similarity', centreg=0, normreg=0, repel=0, nadapt=2, clean_grad=False, pretrained=False, optimization='conservative', epochs=None, noaugment=False, gradient_noise=None, gradient_clip=None, independent_brewing=False, lmdb_path=None, cache_dataset=False, dryrun=False, save='poison_dataset', local_rank=None)
+CPUs: 192, NPUs: 1 on notebook-anneal-dd557f31-5754f6d56-gg7kv.
+ResNet18 model initialized with random key 1.
+Downloading https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz to /home/naie/data/cifar-10-python.tar.gz
+Extracting /home/naie/data/cifar-10-python.tar.gz to /home/naie/data
+Data mean is [0.4914672374725342, 0.4822617471218109, 0.4467701315879822], 
+Data std  is [0.24703224003314972, 0.24348513782024384, 0.26158785820007324].
+Files already downloaded and verified
+Data is loaded with 4 workers.
+Annealing has begun
+Starting clean training ...
+Epoch: 0  | lr: 0.1000 | Training    loss is  2.1855, train acc:  20.56% | Validation   loss is  1.7262, valid acc:  35.99% | 
+Epoch: 0  | lr: 0.1000 | Target adv. loss is  0.0000, fool  acc:   0.00% | Target orig. loss is  0.0000, orig. acc:   0.00% | 
+Epoch: 1  | lr: 0.1000 | Training    loss is  1.5140, train acc:  43.64% | 
+Epoch: 2  | lr: 0.1000 | Training    loss is  1.1968, train acc:  56.77% | 
+Epoch: 3  | lr: 0.1000 | Training    loss is  0.9473, train acc:  66.05% | 
+Epoch: 4  | lr: 0.1000 | Training    loss is  0.7606, train acc:  73.21% | 
+Epoch: 5  | lr: 0.1000 | Training    loss is  0.6591, train acc:  77.25% | 
+Epoch: 6  | lr: 0.1000 | Training    loss is  0.5942, train acc:  79.46% | 
+Epoch: 7  | lr: 0.1000 | Training    loss is  0.5556, train acc:  80.89% | 
+Epoch: 8  | lr: 0.1000 | Training    loss is  0.5282, train acc:  81.72% | 
+Epoch: 9  | lr: 0.1000 | Training    loss is  0.4990, train acc:  82.89% | 
+Epoch: 10 | lr: 0.1000 | Training    loss is  0.4800, train acc:  83.62% | Validation   loss is  0.6521, valid acc:  78.57% | 
+Epoch: 10 | lr: 0.1000 | Target adv. loss is  0.0000, fool  acc:   0.00% | Target orig. loss is  0.0000, orig. acc:   0.00% | 
+Epoch: 11 | lr: 0.1000 | Training    loss is  0.4635, train acc:  84.04% | 
+Epoch: 12 | lr: 0.1000 | Training    loss is  0.4502, train acc:  84.49% | 
+Epoch: 13 | lr: 0.0100 | Training    loss is  0.4375, train acc:  85.15% | 
+Epoch: 14 | lr: 0.0100 | Training    loss is  0.2773, train acc:  90.60% | 
+Epoch: 15 | lr: 0.0100 | Training    loss is  0.2260, train acc:  92.42% | 
+Epoch: 16 | lr: 0.0100 | Training    loss is  0.2044, train acc:  93.10% | 
+Epoch: 17 | lr: 0.0100 | Training    loss is  0.1881, train acc:  93.67% | 
+Epoch: 18 | lr: 0.0100 | Training    loss is  0.1724, train acc:  94.15% | 
+Epoch: 19 | lr: 0.0100 | Training    loss is  0.1629, train acc:  94.44% | 
+Epoch: 20 | lr: 0.0100 | Training    loss is  0.1548, train acc:  94.75% | Validation   loss is  0.2913, valid acc:  90.58% | 
+Epoch: 20 | lr: 0.0100 | Target adv. loss is  0.0000, fool  acc:   0.00% | Target orig. loss is  0.0000, orig. acc:   0.00% | 
+Epoch: 21 | lr: 0.0100 | Training    loss is  0.1466, train acc:  95.04% | 
+Epoch: 22 | lr: 0.0100 | Training    loss is  0.1358, train acc:  95.43% | 
+Epoch: 23 | lr: 0.0010 | Training    loss is  0.1262, train acc:  95.65% | 
+Epoch: 24 | lr: 0.0010 | Training    loss is  0.0995, train acc:  96.76% | 
+Epoch: 25 | lr: 0.0010 | Training    loss is  0.0866, train acc:  97.21% | 
+Epoch: 26 | lr: 0.0010 | Training    loss is  0.0803, train acc:  97.46% | 
+Epoch: 27 | lr: 0.0010 | Training    loss is  0.0777, train acc:  97.41% | 
+Epoch: 28 | lr: 0.0010 | Training    loss is  0.0728, train acc:  97.72% | 
+Epoch: 29 | lr: 0.0010 | Training    loss is  0.0720, train acc:  97.76% | 
+Epoch: 30 | lr: 0.0010 | Training    loss is  0.0707, train acc:  97.74% | Validation   loss is  0.2531, valid acc:  92.25% | 
+Epoch: 30 | lr: 0.0010 | Target adv. loss is  0.0000, fool  acc:   0.00% | Target orig. loss is  0.0000, orig. acc:   0.00% | 
+Epoch: 31 | lr: 0.0010 | Training    loss is  0.0681, train acc:  97.80% | 
+Epoch: 32 | lr: 0.0010 | Training    loss is  0.0668, train acc:  97.89% | 
+Epoch: 33 | lr: 0.0010 | Training    loss is  0.0629, train acc:  98.06% | 
+Epoch: 34 | lr: 0.0001 | Training    loss is  0.0610, train acc:  98.05% | 
+Epoch: 35 | lr: 0.0001 | Training    loss is  0.0579, train acc:  98.25% | 
+Epoch: 36 | lr: 0.0001 | Training    loss is  0.0567, train acc:  98.25% | 
+Epoch: 37 | lr: 0.0001 | Training    loss is  0.0574, train acc:  98.26% | 
+Epoch: 38 | lr: 0.0001 | Training    loss is  0.0571, train acc:  98.24% | 
+Epoch: 39 | lr: 0.0001 | Training    loss is  0.0566, train acc:  98.28% | Validation   loss is  0.2543, valid acc:  92.32% | 
+Epoch: 39 | lr: 0.0001 | Target adv. loss is  0.0000, fool  acc:   0.00% | Target orig. loss is  0.0000, orig. acc:   0.00% | 
+Starting forgeing procedure ...
+Step 0
+Iteration 0: Target loss is -0.1424, Poison clean acc is 95.08%
+Step 10
+Step 20
+Step 30
+Step 40
+Step 50
+Iteration 50: Target loss is -15.5415, Poison clean acc is 0.41%
+Step 60
+Step 70
+Step 80
+Step 90
+Step 100
+Iteration 100: Target loss is -18.1990, Poison clean acc is 0.10%
+Step 110
+Step 120
+Step 130
+Step 140
+Step 150
+Iteration 150: Target loss is -19.0792, Poison clean acc is 0.04%
+Step 160
+Step 170
+Step 180
+Step 190
+Step 200
+Iteration 200: Target loss is -19.5165, Poison clean acc is 0.03%
+Step 210
+Step 220
+Step 230
+Step 240
+Iteration 249: Target loss is -19.7651, Poison clean acc is 0.03%
+Step 0
+Iteration 0: Target loss is -0.1405, Poison clean acc is 95.23%
+Step 10
+Step 20
+Step 30
+Step 40
+Step 50
+Iteration 50: Target loss is -15.5410, Poison clean acc is 0.39%
+Step 60
+Step 70
+Step 80
+Step 90
+Step 100
+Iteration 100: Target loss is -18.1971, Poison clean acc is 0.10%
+Step 110
+Step 120
+Step 130
+Step 140
+Step 150
+Iteration 150: Target loss is -19.0793, Poison clean acc is 0.05%
+Step 160
+Step 170
+Step 180
+Step 190
+Step 200
+Iteration 200: Target loss is -19.4978, Poison clean acc is 0.03%
+Step 210
+Step 220
+Step 230
+Step 240
+Iteration 249: Target loss is -19.7494, Poison clean acc is 0.03%
+Step 0
+Iteration 0: Target loss is -0.1415, Poison clean acc is 95.14%
+Step 10
+Step 20
+Step 30
+Step 40
+Step 50
+Iteration 50: Target loss is -15.5424, Poison clean acc is 0.41%
+Step 60
+Step 70
+Step 80
+Step 90
+Step 100
+Iteration 100: Target loss is -18.2036, Poison clean acc is 0.10%
+Step 110
+Step 120
+Step 130
+Step 140
+Step 150
+Iteration 150: Target loss is -19.0878, Poison clean acc is 0.04%
+Step 160
+Step 170
+Step 180
+Step 190
+Step 200
+Iteration 200: Target loss is -19.5010, Poison clean acc is 0.04%
+Step 210
+Step 220
+Step 230
+Step 240
+Iteration 249: Target loss is -19.7613, Poison clean acc is 0.03%
+Poisons with minimal target loss -1.9765e+01 selected.
+Poisoned training images exported ...
+Dataset fully exported.
+Thursday, 28. November 2024 12:28AM
+---------------------------------------------------
+Finished computations with train time: 0:38:48.125935
+--------------------------- forge time: 7:54:50.789750
+-------------Job finished.-------------------------

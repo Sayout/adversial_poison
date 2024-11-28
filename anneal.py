@@ -1,10 +1,12 @@
 """General interface script to launch poisoning jobs."""
 
 import torch
-
+import os
+os.environ['ASCEND_LAUNCH_BLOCKING'] = '1'
 import datetime
 import time
-
+import torch_npu
+from torch_npu.contrib import transfer_to_npu
 import village
 torch.backends.cudnn.benchmark = village.consts.BENCHMARK
 torch.multiprocessing.set_sharing_strategy(village.consts.SHARING_STRATEGY)

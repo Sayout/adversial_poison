@@ -4,16 +4,16 @@ import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
 import torch.backends.cudnn as cudnn
-
 import torchvision
 import torchvision.transforms as transforms
-
+import torch_npu
+from torch_npu.contrib import transfer_to_npu
 import os
 import argparse
 import numpy as np
 
 from models import *
-#from utils import progress_bar
+# from utils import progress_bar
 from PIL import Image
 
 class CIFAR_load(torch.utils.data.Dataset):
@@ -43,7 +43,9 @@ parser.add_argument('--resume', '-r', action='store_true',
 args = parser.parse_args()
 
 print(args)
-device = 'cuda' if torch.cuda.is_available() else 'cpu'
+# device = 'cuda' if torch.cuda.is_available() else 'cpu'
+device = torch.device('npu:0')
+torch.npu.set_device(device)
 best_acc = 0  # best test accuracy
 start_epoch = 0  # start from epoch 0 or last checkpoint epoch
 
@@ -62,13 +64,13 @@ transform_test = transforms.Compose([
 ])
 
 baseset = torchvision.datasets.CIFAR10(
-    root='~/data', train=True, download=False, transform=transform_train)
+    root='/opt/dpcvol/datasets/data', train=True, download=True, transform=transform_train)
 trainset = CIFAR_load(root=args.load_path, baseset=baseset)
 trainloader = torch.utils.data.DataLoader(
     trainset, batch_size=128, shuffle=True, num_workers=2)
 
 testset = torchvision.datasets.CIFAR10(
-    root='~/data', train=False, download=False, transform=transform_test)
+    root='/opt/dpcvol/datasets/data', train=False, download=False, transform=transform_test)
 testloader = torch.utils.data.DataLoader(
     testset, batch_size=100, shuffle=False, num_workers=2)
 
@@ -96,9 +98,10 @@ for run in range(args.runs):
     # net = RegNetX_200MF()
     #net = SimpleDLA()
     net = net.to(device)
-    if device == 'cuda':
-        net = torch.nn.DataParallel(net)
-        cudnn.benchmark = True
+    # TODO
+    # if device == 'cuda':
+    #     net = torch.nn.DataParallel(net)
+    #     cudnn.benchmark = True
 
     # Training
     def train(epoch):

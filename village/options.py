@@ -15,7 +15,7 @@ def options():
     # Central:
     parser.add_argument('--net', default='ResNet18', type=lambda s: [str(item) for item in s.split(',')])
     parser.add_argument('--dataset', default='CIFAR10', type=str, choices=['CIFAR10', 'CIFAR100', 'ImageNet', 'ImageNet1k', 'MNIST', 'TinyImageNet', 'ImageNet_load'])
-    parser.add_argument('--recipe', default='targeted', type=str, choices=['grad_explosion', 'tensorclog',
+    parser.add_argument('--recipe', default='untargeted', type=str, choices=['grad_explosion', 'tensorclog',
                                                                                     'untargeted', 'targeted'])
     parser.add_argument('--threatmodel', default='single-class', type=str, choices=['single-class', 'third-party', 'random-subset'])
 
@@ -30,7 +30,7 @@ def options():
 
     # Files and folders
     parser.add_argument('--name', default='', type=str, help='Name tag for the result table and possibly for export folders.')
-    parser.add_argument('--poison_path', default='poisons/', type=str)
+    parser.add_argument('--poison_path', default='/opt/dpcvol/datasets/poisons', type=str)
     parser.add_argument('--data_path', default='~/data', type=str)
     parser.add_argument('--resume', default='', type=str)
     parser.add_argument('--resume_idx', default=None, type=int)
@@ -93,7 +93,7 @@ def options():
 
     # Debugging:
     parser.add_argument('--dryrun', action='store_true')
-    parser.add_argument('--save', default=None, help='Export poisons into a given format. Options are full/limited/automl/numpy.')
+    parser.add_argument('--save', default="poison_dataset", help='Export poisons into a given format. Options are full/limited/automl/numpy.')
 
     # Distributed Computations
     parser.add_argument("--local_rank", default=None, type=int, help='Distributed rank. This is an INTERNAL ARGUMENT! '

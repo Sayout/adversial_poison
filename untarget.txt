@@ -1,0 +1,97 @@
+Currently evaluating -------------------------------:
+Tuesday, 26. November 2024 09:35PM
+Namespace(net=['ResNet18'], dataset='CIFAR10', recipe='untargeted', threatmodel='single-class', poisonkey='3', modelkey=1, deterministic=False, eps=8.0, budget=1.0, name='', poison_path='/opt/dpcvol/datasets/poisoned_dataset/untargeted', data_path='~/data', resume='', resume_idx=None, attackoptim='PGD', attackiter=250, init='randn', tau=0.05, scheduling=True, restarts=1, poison_partition=None, pbatch=512, pshuffle=False, paugment=True, data_aug='default', full_data=False, adversarial=0, ensemble=1, stagger=False, step=False, max_epoch=None, loss='similarity', centreg=0, normreg=0, repel=0, nadapt=2, clean_grad=False, pretrained=False, optimization='conservative', epochs=None, noaugment=False, gradient_noise=None, gradient_clip=None, independent_brewing=False, lmdb_path=None, cache_dataset=False, dryrun=False, save='poison_dataset', local_rank=None)
+CPUs: 192, NPUs: 1 on notebook-anneal-6513c700-7b6848c95f-hvpsk.
+ResNet18 model initialized with random key 1.
+Files already downloaded and verified
+Data mean is [0.4914672374725342, 0.4822617471218109, 0.4467701315879822], 
+Data std  is [0.24703224003314972, 0.24348513782024384, 0.26158785820007324].
+Files already downloaded and verified
+Data is loaded with 4 workers.
+Annealing has begun
+Starting clean training ...
+Epoch: 0  | lr: 0.1000 | Training    loss is  2.0684, train acc:  26.45% | Validation   loss is  1.6541, valid acc:  39.40% | 
+Epoch: 0  | lr: 0.1000 | Target adv. loss is  0.0000, fool  acc:   0.00% | Target orig. loss is  0.0000, orig. acc:   0.00% | 
+Epoch: 1  | lr: 0.1000 | Training    loss is  1.4557, train acc:  46.49% | 
+Epoch: 2  | lr: 0.1000 | Training    loss is  1.1203, train acc:  59.79% | 
+Epoch: 3  | lr: 0.1000 | Training    loss is  0.8718, train acc:  69.19% | 
+Epoch: 4  | lr: 0.1000 | Training    loss is  0.7210, train acc:  74.76% | 
+Epoch: 5  | lr: 0.1000 | Training    loss is  0.6404, train acc:  77.60% | 
+Epoch: 6  | lr: 0.1000 | Training    loss is  0.5844, train acc:  79.69% | 
+Epoch: 7  | lr: 0.1000 | Training    loss is  0.5457, train acc:  81.24% | 
+Epoch: 8  | lr: 0.1000 | Training    loss is  0.5194, train acc:  82.04% | 
+Epoch: 9  | lr: 0.1000 | Training    loss is  0.4957, train acc:  83.00% | 
+Epoch: 10 | lr: 0.1000 | Training    loss is  0.4781, train acc:  83.47% | Validation   loss is  0.6234, valid acc:  78.66% | 
+Epoch: 10 | lr: 0.1000 | Target adv. loss is  0.0000, fool  acc:   0.00% | Target orig. loss is  0.0000, orig. acc:   0.00% | 
+Epoch: 11 | lr: 0.1000 | Training    loss is  0.4572, train acc:  84.21% | 
+Epoch: 12 | lr: 0.1000 | Training    loss is  0.4486, train acc:  84.52% | 
+Epoch: 13 | lr: 0.0100 | Training    loss is  0.4367, train acc:  85.20% | 
+Epoch: 14 | lr: 0.0100 | Training    loss is  0.2790, train acc:  90.50% | 
+Epoch: 15 | lr: 0.0100 | Training    loss is  0.2244, train acc:  92.35% | 
+Epoch: 16 | lr: 0.0100 | Training    loss is  0.2045, train acc:  93.00% | 
+Epoch: 17 | lr: 0.0100 | Training    loss is  0.1872, train acc:  93.60% | 
+Epoch: 18 | lr: 0.0100 | Training    loss is  0.1731, train acc:  94.05% | 
+Epoch: 19 | lr: 0.0100 | Training    loss is  0.1590, train acc:  94.45% | 
+Epoch: 20 | lr: 0.0100 | Training    loss is  0.1526, train acc:  94.77% | Validation   loss is  0.2695, valid acc:  91.16% | 
+Epoch: 20 | lr: 0.0100 | Target adv. loss is  0.0000, fool  acc:   0.00% | Target orig. loss is  0.0000, orig. acc:   0.00% | 
+Epoch: 21 | lr: 0.0100 | Training    loss is  0.1401, train acc:  95.24% | 
+Epoch: 22 | lr: 0.0100 | Training    loss is  0.1317, train acc:  95.60% | 
+Epoch: 23 | lr: 0.0010 | Training    loss is  0.1257, train acc:  95.71% | 
+Epoch: 24 | lr: 0.0010 | Training    loss is  0.0947, train acc:  96.89% | 
+Epoch: 25 | lr: 0.0010 | Training    loss is  0.0831, train acc:  97.44% | 
+Epoch: 26 | lr: 0.0010 | Training    loss is  0.0780, train acc:  97.46% | 
+Epoch: 27 | lr: 0.0010 | Training    loss is  0.0742, train acc:  97.61% | 
+Epoch: 28 | lr: 0.0010 | Training    loss is  0.0707, train acc:  97.87% | 
+Epoch: 29 | lr: 0.0010 | Training    loss is  0.0696, train acc:  97.78% | 
+Epoch: 30 | lr: 0.0010 | Training    loss is  0.0666, train acc:  97.99% | Validation   loss is  0.2571, valid acc:  91.69% | 
+Epoch: 30 | lr: 0.0010 | Target adv. loss is  0.0000, fool  acc:   0.00% | Target orig. loss is  0.0000, orig. acc:   0.00% | 
+Epoch: 31 | lr: 0.0010 | Training    loss is  0.0655, train acc:  97.95% | 
+Epoch: 32 | lr: 0.0010 | Training    loss is  0.0631, train acc:  98.04% | 
+Epoch: 33 | lr: 0.0010 | Training    loss is  0.0619, train acc:  98.02% | 
+Epoch: 34 | lr: 0.0001 | Training    loss is  0.0577, train acc:  98.28% | 
+Epoch: 35 | lr: 0.0001 | Training    loss is  0.0559, train acc:  98.27% | 
+Epoch: 36 | lr: 0.0001 | Training    loss is  0.0548, train acc:  98.38% | 
+Epoch: 37 | lr: 0.0001 | Training    loss is  0.0541, train acc:  98.36% | 
+Epoch: 38 | lr: 0.0001 | Training    loss is  0.0546, train acc:  98.35% | 
+Epoch: 39 | lr: 0.0001 | Training    loss is  0.0542, train acc:  98.41% | Validation   loss is  0.2613, valid acc:  91.97% | 
+Epoch: 39 | lr: 0.0001 | Target adv. loss is  0.0000, fool  acc:   0.00% | Target orig. loss is  0.0000, orig. acc:   0.00% | 
+Starting forgeing procedure ...
+Step 0
+Iteration 0: Target loss is -0.1357, Poison clean acc is 95.39%
+Step 10
+Step 20
+Step 30
+Step 40
+Step 50
+Iteration 50: Target loss is -15.2641, Poison clean acc is 0.47%
+Step 60
+Step 70
+Step 80
+Step 90
+Step 100
+Iteration 100: Target loss is -17.8636, Poison clean acc is 0.11%
+Step 110
+Step 120
+Step 130
+Step 140
+Step 150
+Iteration 150: Target loss is -18.7080, Poison clean acc is 0.05%
+Step 160
+Step 170
+Step 180
+Step 190
+Step 200
+Iteration 200: Target loss is -19.1429, Poison clean acc is 0.03%
+Step 210
+Step 220
+Step 230
+Step 240
+Iteration 249: Target loss is -19.3803, Poison clean acc is 0.03%
+Poisons with minimal target loss -1.9380e+01 selected.
+Poisoned training images exported ...
+Dataset fully exported.
+Wednesday, 27. November 2024 12:08AM
+---------------------------------------------------
+Finished computations with train time: 0:27:05.773073
+--------------------------- forge time: 2:01:35.729264
+-------------Job finished.-------------------------
